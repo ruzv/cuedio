@@ -1,0 +1,23 @@
+name: PIPELINE
+
+on:
+  push:
+    tags:
+      - v*
+    branches:
+      - master
+      - main
+  pull_request:
+permissions:
+  contents: read
+  # Optional: allow read access to pull request. Use with `only-new-issues` option.
+  # pull-requests: read
+jobs:
+  run-action-test:
+    # runs-on: self-hosted
+    runs-on: ubuntu-latest
+    steps:
+      - name: running action
+        working-directory: web
+        run: |
+          echo hi
